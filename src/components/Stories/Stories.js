@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Story from "./Story/Story";
 
-const Stories = () => {
+const Stories = ({ match }) => {
   const [storyIds, setStoryIds] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
+  let type = match.params.type || "topstories";
+
   useEffect(() => {
+    setLoading(true);
     async function getStoryIds() {
       try {
         const res = await axios(
-          "https://hacker-news.firebaseio.com/v0/newstories.json"
+          `https://hacker-news.firebaseio.com/v0/${type}.json`
         );
         setStoryIds(res.data);
       } catch (err) {
@@ -21,7 +24,7 @@ const Stories = () => {
     }
 
     getStoryIds();
-  }, []);
+  }, [type]);
 
   const stories = storyIds.map((storyId, index) => (
     <Story key={storyId} index={index} storyId={storyId} />
@@ -30,7 +33,7 @@ const Stories = () => {
   return (
     <div className='Stories'>
       {loading ? (
-        <i class='fas fa-spinner fa-spin'></i>
+        <i className='fas fa-spinner fa-spin'></i>
       ) : (
         stories.slice(page * 30 - 30, page * 30)
       )}

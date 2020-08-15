@@ -12,6 +12,7 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route exact path='/' component={Stories} />
+        <Route exact path='/:type' component={Stories} />
         <Route path='/story/:id' component={SingleStory} />
         <Route path='/user/:userId' component={User} />
       </Switch>
