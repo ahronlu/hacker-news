@@ -22,11 +22,11 @@ const User = ({ match }) => {
 
     getUser();
   }, [userId]);
-  user && console.log(user);
+
   return (
     <div className='User'>
       {loading ? (
-        <i class='fas fa-spinner fa-spin'></i>
+        <i className='fas fa-spinner fa-spin'></i>
       ) : (
         <>
           <p>user: {userId}</p>

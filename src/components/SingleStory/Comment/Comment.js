@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
 import { mapTime } from "../../../utils/mapTime";
 
 const Comment = ({ id }) => {
@@ -34,7 +33,7 @@ const Comment = ({ id }) => {
   return (
     <>
       {loading ? (
-        <i class='fas fa-spinner fa-spin'></i>
+        <i className='fas fa-spinner fa-spin'></i>
       ) : (
         <div className='Comment'>
           <div>

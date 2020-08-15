@@ -33,7 +33,7 @@ const SingleStory = (props) => {
   return (
     <>
       {loading ? (
-        <i class='fas fa-spinner fa-spin'></i>
+        <i className='fas fa-spinner fa-spin'></i>
       ) : (
         <div className='SingleStory'>
           <a href={story.url}>{story.title}</a>
