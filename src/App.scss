@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Verdana);
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: #828282;
+  background-color: #fafafe;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 10px auto;
+  background-color: rgb(246, 246, 239);
+}
+
+.User,
+.Stories,
+.SingleStory {
+  margin: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.Navbar {
+  background-color: #ff6600;
+  display: flex;
+  align-items: center;
+
+  & img {
+    border: 1px white solid;
+    margin: 2px;
+  }
+
+  & span {
+    font-weight: bold;
+    font-size: 10pt;
+    line-height: 12pt;
+  }
+}
+
+.Story {
+  display: flex;
+
+  & p {
+    font-size: 9.3333px;
+  }
+}
+
+.about {
+  display: flex;
+}
+
+.about div {
+  margin-left: 3.2px;
+}
+
+.Comment .Comment {
+  margin-left: 50px;
+}
+
+.Comment {
+  & span {
+    cursor: pointer;
+  }
+}
