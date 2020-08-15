@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Moment from "react-moment";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
+import { mapTime } from "../../../utils/mapTime";
 
 const Comment = ({ id }) => {
   const [comment, setComment] = useState(null);
@@ -36,11 +37,11 @@ const Comment = ({ id }) => {
         <i class='fas fa-spinner fa-spin'></i>
       ) : (
         <div className='Comment'>
-          <h4>
-            *<Link to={`/user/${comment.by}`}> {comment.by}</Link> on{" "}
-            <Moment format='MMM D, YYYY'>{comment.time}</Moment>{" "}
-            <span onClick={() => setShow(!show)}>[ {show ? "-" : "+"} ]</span>
-          </h4>
+          <div>
+            *<Link to={`/user/${comment.by}`}> {comment.by}</Link>{" "}
+            {mapTime(comment.time)} ago{" "}
+            <span onClick={() => setShow(!show)}>[{show ? "-" : "+"}]</span>
+          </div>
           {show ? (
             <>
               <div

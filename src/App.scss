@@ -78,6 +78,10 @@ a:hover {
   }
 }
 
+.SingleStory p {
+  font-size: 9.3333px;
+}
+
 .about {
   display: flex;
 }
@@ -91,6 +95,10 @@ a:hover {
 }
 
 .Comment {
+  margin: 20px 0;
+  & div {
+    margin: 10px 0;
+  }
   & span {
     cursor: pointer;
   }
