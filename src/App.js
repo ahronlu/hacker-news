@@ -15,6 +15,9 @@ const App = () => (
         <Route path='/story/:id' component={SingleStory} />
         <Route path='/user/:userId' component={User} />
       </Switch>
+      <footer>
+        <span>Hacker News clone by Aharon Lubitsch 2020</span>
+      </footer>
     </div>
   </Router>
 );

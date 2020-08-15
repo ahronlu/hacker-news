@@ -5,6 +5,7 @@ import Story from "./Story/Story";
 const Stories = () => {
   const [storyIds, setStoryIds] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function getStoryIds() {
@@ -22,15 +23,21 @@ const Stories = () => {
     getStoryIds();
   }, []);
 
+  const stories = storyIds.map((storyId, index) => (
+    <Story key={storyId} index={index} storyId={storyId} />
+  ));
+
   return (
     <div className='Stories'>
       {loading ? (
         <i class='fas fa-spinner fa-spin'></i>
       ) : (
-        storyIds.map((storyId, i) => (
-          <Story key={storyId} index={i} storyId={storyId} />
-        ))
+        stories.slice(page * 30 - 30, page * 30)
       )}
+      <div className='pagination'>
+        {page > 1 && <span onClick={() => setPage(page - 1)}>Prev</span>}
+        {page < 17 && <span onClick={() => setPage(page + 1)}>Next</span>}
+      </div>
     </div>
   );
 };
