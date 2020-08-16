@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { axiosInstance } from "../../../services/hnApi";
 import { Link } from "react-router-dom";
-import { mapTime } from "../../../utils/mapTime";
+import { axiosInstance } from "../../../services/hnApi";
+import MapTime from "../../MapTime/MapTime";
 
 const Story = ({ storyId, index }) => {
   const [story, setStory] = useState({});
@@ -35,8 +35,8 @@ const Story = ({ storyId, index }) => {
         <a href={story.url}>{story.title}</a>
         <p>
           {story.score} points by{" "}
-          <Link to={`/user/${story.by}`}>{story.by}</Link> {mapTime(story.time)}{" "}
-          ago |{" "}
+          <Link to={`/user/${story.by}`}>{story.by}</Link>{" "}
+          <MapTime timestamp={story.time} /> |{" "}
           <Link to={`/story/${story.id}`}>{story.descendants} comments</Link>
         </p>
       </div>

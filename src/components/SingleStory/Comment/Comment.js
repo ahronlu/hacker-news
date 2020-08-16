@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { axiosInstance } from "../../../services/hnApi";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { mapTime } from "../../../utils/mapTime";
+import { axiosInstance } from "../../../services/hnApi";
+import MapTime from "../../MapTime/MapTime";
 
 const Comment = ({ id }) => {
   const [comment, setComment] = useState(null);
@@ -38,7 +38,7 @@ const Comment = ({ id }) => {
         <div className='Comment'>
           <div>
             *<Link to={`/user/${comment.by}`}> {comment.by}</Link>{" "}
-            {mapTime(comment.time)} ago{" "}
+            <MapTime timestamp={comment.time} />{" "}
             <span onClick={() => setShow(!show)}>[{show ? "-" : "+"}]</span>
           </div>
           {show ? (

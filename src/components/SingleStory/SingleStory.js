@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../services/hnApi";
-import { mapTime } from "../../utils/mapTime";
+import MapTime from "../MapTime/MapTime";
 import Comment from "./Comment/Comment";
 
 const SingleStory = (props) => {
@@ -40,7 +40,7 @@ const SingleStory = (props) => {
           <p>
             {story.score} points by{" "}
             <Link to={`/user/${story.by}`}>{story.by}</Link>{" "}
-            {mapTime(story.time)} ago |{" "}
+            <MapTime timestamp={story.time} /> |{" "}
             <Link to={`/story/${story.id}`}>{story.descendants} comments</Link>
           </p>
           <hr />
