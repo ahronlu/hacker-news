@@ -12,6 +12,7 @@ const Stories = ({ match }) => {
   let type = match.params.type || TOPSTORIES;
 
   useEffect(() => {
+    setPage(1);
     setLoading(true);
     async function getStoryIds() {
       try {
@@ -24,7 +25,7 @@ const Stories = ({ match }) => {
     }
 
     getStoryIds();
-  }, [type]);
+  }, [type, match]);
 
   const stories = storyIds.map((storyId, index) => (
     <Story key={storyId} index={index} storyId={storyId} />
