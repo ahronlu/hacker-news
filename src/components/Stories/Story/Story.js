@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { axiosInstance, source } from "../../../services/hnApi";
+import { axiosInstance } from "../../../services/api";
 import MapTime from "../../MapTime/MapTime";
 
 const Story = ({ storyId, index }) => {

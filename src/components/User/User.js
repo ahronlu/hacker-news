@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { axiosInstance } from "../../services/hnApi";
+import { axiosInstance } from "../../services/api";
 import Moment from "react-moment";
 
 const User = ({ match }) => {

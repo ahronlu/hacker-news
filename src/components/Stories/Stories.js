@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { axiosInstance } from "../../services/hnApi";
+import { axiosInstance } from "../../services/api";
 import Story from "./Story/Story";
 
 const TOPSTORIES = "topstories";
@@ -25,7 +25,7 @@ const Stories = ({ match }) => {
     }
 
     getStoryIds();
-  }, [type, match]);
+  }, [type, match.url]);
 
   const stories = storyIds.map((storyId, index) => (
     <Story key={storyId} index={index} storyId={storyId} />
