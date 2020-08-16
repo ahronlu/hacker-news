@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { axiosInstance } from "../../services/hnApi";
 import Story from "./Story/Story";
 
 const Stories = ({ match }) => {
@@ -13,9 +13,7 @@ const Stories = ({ match }) => {
     setLoading(true);
     async function getStoryIds() {
       try {
-        const res = await axios(
-          `https://hacker-news.firebaseio.com/v0/${type}.json`
-        );
+        const res = await axiosInstance(`/${type}.json`);
         setStoryIds(res.data);
       } catch (err) {
         console.log(err);

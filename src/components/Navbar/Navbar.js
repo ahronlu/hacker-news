@@ -8,12 +8,8 @@ const Navbar = () => {
       <Link to='/'>
         <span>Hacker News</span>
       </Link>
-      <Link to='/' style={{ marginLeft: "10px" }}>
-        Top
-      </Link>
-      <Link to='/newstories' style={{ marginLeft: "10px" }}>
-        New
-      </Link>
+      <Link to='/'>Top</Link>
+      <Link to='/newstories'>New</Link>
     </div>
   );
 };

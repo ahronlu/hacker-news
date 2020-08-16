@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../services/hnApi";
 import { mapTime } from "../../utils/mapTime";
 import Comment from "./Comment/Comment";
 
@@ -13,10 +14,9 @@ const SingleStory = (props) => {
     let source = axios.CancelToken.source();
     async function getStory() {
       try {
-        const res = await axios(
-          `https://hacker-news.firebaseio.com/v0/item/${storyId}.json`,
-          { cancelToken: source.token }
-        );
+        const res = await axiosInstance(`/item/${storyId}.json`, {
+          cancelToken: source.token,
+        });
         setStory(res.data);
       } catch (err) {
         console.log(err);

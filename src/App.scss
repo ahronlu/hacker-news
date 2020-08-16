@@ -67,6 +67,10 @@ a:hover {
     font-size: 10pt;
     line-height: 12pt;
   }
+
+  & a:not(:first-of-type) {
+    margin-left: 10px;
+  }
 }
 
 .Story {

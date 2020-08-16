@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { axiosInstance } from "../../../services/hnApi";
 import { Link } from "react-router-dom";
 import { mapTime } from "../../../utils/mapTime";
 
@@ -11,10 +12,9 @@ const Story = ({ storyId, index }) => {
 
     async function getStory() {
       try {
-        const res = await axios(
-          `https://hacker-news.firebaseio.com/v0/item/${storyId}.json`,
-          { cancelToken: source.token }
-        );
+        const res = await axiosInstance(`/item/${storyId}.json`, {
+          cancelToken: source.token,
+        });
         setStory(res.data);
       } catch (err) {
         console.log(err);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { axiosInstance } from "../../services/hnApi";
 import Moment from "react-moment";
 
 const User = ({ match }) => {
@@ -10,9 +10,7 @@ const User = ({ match }) => {
   useEffect(() => {
     async function getUser() {
       try {
-        const res = await axios(
-          `https://hacker-news.firebaseio.com/v0/user/${userId}.json`
-        );
+        const res = await axiosInstance(`/user/${userId}.json`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
