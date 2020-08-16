@@ -8,8 +8,10 @@ const Navbar = () => {
       <Link to='/'>
         <span>Hacker News</span>
       </Link>
-      <Link to='/'>Top</Link>
+      <Link to='/topstories'>Top</Link>
       <Link to='/newstories'>New</Link>
+      <Link to='/showstories'>Show</Link>
+      <Link to='/jobstories'>Jobs</Link>
     </div>
   );
 };

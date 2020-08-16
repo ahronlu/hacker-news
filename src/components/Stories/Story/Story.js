@@ -37,7 +37,9 @@ const Story = ({ storyId, index }) => {
           {story.score} points by{" "}
           <Link to={`/user/${story.by}`}>{story.by}</Link>{" "}
           <MapTime timestamp={story.time} /> |{" "}
-          <Link to={`/story/${story.id}`}>{story.descendants} comments</Link>
+          <Link to={`/story/${story.id}`}>
+            {story.descendants || 0} comments
+          </Link>
         </p>
       </div>
     </div>
