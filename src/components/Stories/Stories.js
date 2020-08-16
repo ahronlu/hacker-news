@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { axiosInstance } from "../../services/hnApi";
 import Story from "./Story/Story";
 
+const TOPSTORIES = "topstories";
+
 const Stories = ({ match }) => {
   const [storyIds, setStoryIds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  let type = match.params.type || "topstories";
+  let type = match.params.type || TOPSTORIES;
 
   useEffect(() => {
     setLoading(true);
@@ -33,11 +35,15 @@ const Stories = ({ match }) => {
       {loading ? (
         <i className='fas fa-spinner fa-spin'></i>
       ) : (
-        stories.slice(page * 30 - 30, page * 30)
+        stories.map(
+          (story, i) => i < page * 30 && i + 1 > (page - 1) * 30 && story
+        )
       )}
       <div className='pagination'>
         {page > 1 && <span onClick={() => setPage(page - 1)}>Prev</span>}
-        {page < 17 && <span onClick={() => setPage(page + 1)}>Next</span>}
+        {page < stories.length / 30 && (
+          <span onClick={() => setPage(page + 1)}>Next</span>
+        )}
       </div>
     </div>
   );
