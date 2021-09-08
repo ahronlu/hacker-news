@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Stories from "./components/Stories/Stories";
@@ -8,13 +7,13 @@ import "./App.scss";
 
 const App = () => (
   <Router>
-    <div className='container'>
+    <div className="container">
       <Navbar />
       <Switch>
-        <Route exact path='/' component={Stories} />
-        <Route exact path='/:type' component={Stories} />
-        <Route path='/story/:id' component={SingleStory} />
-        <Route path='/user/:userId' component={User} />
+        <Route exact path="/" component={Stories} />
+        <Route exact path="/:type" component={Stories} />
+        <Route path="/story/:id" component={SingleStory} />
+        <Route path="/user/:userId" component={User} />
       </Switch>
       <footer>
         <span>Hacker News clone by Aharon Lubitsch 2020</span>

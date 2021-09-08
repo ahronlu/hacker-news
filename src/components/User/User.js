@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { axiosInstance } from "../../services/api";
 import Moment from "react-moment";
 
@@ -22,23 +22,23 @@ const User = ({ match }) => {
   }, [userId]);
 
   return (
-    <div className='User'>
+    <div className="User">
       {loading ? (
-        <i className='fas fa-spinner fa-spin'></i>
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
         <>
           <p>user: {userId}</p>
           <p>
-            created: <Moment format='MMM D, YYYY'>{user.created}</Moment>
+            created: <Moment format="MMM D, YYYY">{user.created}</Moment>
           </p>
           <p>karma: {user.karma}</p>
           {user.about && (
-            <div className='about'>
+            <div className="about">
               about:
               <div
-                className='preview rounded p-2'
+                className="preview rounded p-2"
                 dangerouslySetInnerHTML={{ __html: user.about }}
-                id='preview'
+                id="preview"
               />
             </div>
           )}

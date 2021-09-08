@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../services/api";
@@ -33,9 +33,9 @@ const SingleStory = (props) => {
   return (
     <>
       {loading ? (
-        <i className='fas fa-spinner fa-spin'></i>
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
-        <div className='SingleStory'>
+        <div className="SingleStory">
           <a href={story.url}>{story.title}</a>
           <p>
             {story.score} points by{" "}

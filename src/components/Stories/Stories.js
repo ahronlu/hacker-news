@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { axiosInstance } from "../../services/api";
 import Story from "./Story/Story";
 
@@ -32,15 +32,15 @@ const Stories = ({ match }) => {
   ));
 
   return (
-    <div className='Stories'>
+    <div className="Stories">
       {loading ? (
-        <i className='fas fa-spinner fa-spin'></i>
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
         stories.map(
           (story, i) => i < page * 30 && i + 1 > (page - 1) * 30 && story
         )
       )}
-      <div className='pagination'>
+      <div className="pagination">
         {page > 1 && <span onClick={() => setPage(page - 1)}>Prev</span>}
         {page < stories.length / 30 && (
           <span onClick={() => setPage(page + 1)}>Next</span>

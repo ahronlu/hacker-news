@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../services/api";
@@ -29,7 +29,7 @@ const Story = ({ storyId, index }) => {
   }, [storyId]);
 
   return story && story.url ? (
-    <div className='Story'>
+    <div className="Story">
       <div>{index + 1}.</div>
       <div>
         <a href={story.url}>{story.title}</a>

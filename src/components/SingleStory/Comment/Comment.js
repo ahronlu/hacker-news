@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../services/api";
@@ -33,9 +33,9 @@ const Comment = ({ id }) => {
   return (
     <>
       {loading ? (
-        <i className='fas fa-spinner fa-spin'></i>
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
-        <div className='Comment'>
+        <div className="Comment">
           <div>
             *<Link to={`/user/${comment.by}`}> {comment.by}</Link>{" "}
             <MapTime timestamp={comment.time} />{" "}
@@ -44,9 +44,9 @@ const Comment = ({ id }) => {
           {show ? (
             <>
               <div
-                className='preview rounded p-2'
+                className="preview rounded p-2"
                 dangerouslySetInnerHTML={{ __html: comment.text }}
-                id='preview'
+                id="preview"
               />
               {comment.kids &&
                 comment.kids.map((kid, i) => <Comment key={i} id={kid} />)}

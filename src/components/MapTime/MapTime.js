@@ -1,5 +1,3 @@
-import React from "react";
-
 const MapTime = ({ timestamp }) => {
   const seconds = Math.floor((new Date() - timestamp * 1000) / 1000);
 
